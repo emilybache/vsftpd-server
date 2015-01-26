@@ -18,4 +18,6 @@ VOLUME ["/ftp"]
 EXPOSE 20 21
 EXPOSE 12020 12021 12022 12023 12024 12025
 
-ENTRYPOINT ["/bin/bash", "/usr/local/bin/start.sh"]
+ENTRYPOINT ["/usr/local/bin/start.sh"]
+
+CMD ["vsftpd"]

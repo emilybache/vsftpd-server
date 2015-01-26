@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ $1 == 'no-bootstrap' ]; then
+  exec bash
+fi
+
 if ( id ${USER} ); then
   echo "User ${USER} already exists"
 else
@@ -8,4 +12,8 @@ else
   useradd -d /ftp/${USER} -m -p ${ENC_PASS} -u 1000 -s /bin/sh ${USER}
 fi
 
-exec vsftpd
+if [ $1 == 'vsftpd' ]; then
+  exec vsftpd
+else
+  exec $@
+fi
