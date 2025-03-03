@@ -1,8 +1,7 @@
 FROM ubuntu:14.04
-MAINTAINER Emily Bache
 
-ENV USER ftpuser
-ENV PASS changeme
+ENV USER=ftpuser
+ENV PASS=changeme
 
 RUN apt-get update && \
     apt-get install -y vsftpd supervisor && \
